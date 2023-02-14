@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script defer src="./assets/script.js"></script>
+    <script defer
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <title>Weather Api</title>
 </head>
 <body>
-    
+
+    <div class="main-container">
+        <form class="main-search" id="main-search" method="get" action="{% url 'search' %}">
+            <input type="text" class="city-search" id="city-search" placeholder="Enter A City">
+            <button class="search-btn" id="search-btn" type="submit">Search</button>
+        </form>
+
+    <div class="search-history">
+        <h3>Recent Searches</h3>
+        <div class="prev-searches" id="prev-searches"></div>
+    </div>
+
+    <div class="daily-data">
+        <div class="date-container">
+            <div class="curr-time" id="curr-time"></div>
+            <div class="curr-date" id="curr-date"></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="forecast-container">
+        <div class="weather-item">
+            <div class="day"></div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+          </div>
+          <div class="weather-item">
+            <div class="day"></div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+          </div>
+          <div class="weather-item">
+            <div class="day"></div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+          </div>
+          <div class="weather-item">
+            <div class="day"></div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+          </div>
+          <div class="weather-item">
+            <div class="day"></div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+          </div>
+    </div>
 </body>
 </html>
