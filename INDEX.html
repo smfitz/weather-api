@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <script defer src="./assets/script.js"></script>
+    <link rel="stylesheet" href="./Dev/style.css" />
+    <script defer src="./Dev/script.js"></script>
     <script defer
     src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -34,9 +34,21 @@
             <div class="curr-date" id="curr-date"></div>
         </div>
     </div>
+    <div class="weater-data" id="current-weather-items"></div>
+    <div class="city-container" id="city"></div>
     </div>
 
     <div class="forecast-container">
+
+      <div class="current-day" id="curr-temp">
+        <div class="day"></div>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
+        <div class="temp"></div>
+        <div class="humidity"></div>
+        <div class="wind-speed"></div>
+      </div>
+
+      <div class="forecast" id="forecast">
         <div class="weather-item">
             <div class="day"></div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
@@ -65,13 +77,7 @@
             <div class="humidity"></div>
             <div class="wind-speed"></div>
           </div>
-          <div class="weather-item">
-            <div class="day"></div>
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
-            <div class="temp"></div>
-            <div class="humidity"></div>
-            <div class="wind-speed"></div>
-          </div>
+      </div>
     </div>
 </body>
 </html>
