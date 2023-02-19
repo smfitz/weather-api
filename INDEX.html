@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Dev/style.css" />
     <script defer src="./Dev/script.js"></script>
     <script defer
@@ -17,28 +18,31 @@
 </head>
 <body>
 
+    <div class="main-header">
+      <h1>Five Day Weather Forecaster</h1>
+    </div>
+
     <div class="main-container">
         <form class="main-search" id="main-search" method="get" action="{% url 'search' %}">
             <input type="text" class="city-search" id="city-search" placeholder="Enter A City">
             <button class="search-btn" id="search-btn" type="submit">Search</button>
         </form>
 
-    <div class="search-history">
-        <h3>Recent Searches</h3>
-        <div class="prev-searches" id="prev-searches"></div>
+
+    <div class="time-container"> 
+      <span id="hours">00</span>
+      <span>:</span>
+      <span id="minutes">00</span>
+      <span>:</span>
+      <span id="seconds">00</span>
+      <span id="session">AM</span>
+    </div>
     </div>
 
-    <div class="daily-data">
-        <div class="date-container">
-            <div class="curr-time" id="curr-time"></div>
-            <div class="curr-date" id="curr-date"></div>
-        </div>
-    </div>
-    <div class="weater-data" id="current-weather-items"></div>
-    <div class="city-container" id="city"></div>
-    </div>
-
-    <div class="forecast-container">
+    <div id="forecast-container" class="hide">
+      <div class="main-contain">
+      <div class="weater-data, hide" id="current-weather-items"></div>
+      <div class="city-container, hide" id="city"></div>
 
       <div class="current-day" id="curr-temp">
         <div class="day"></div>
@@ -48,7 +52,7 @@
         <div class="wind-speed"></div>
       </div>
 
-      <div class="forecast" id="forecast">
+      <div class="forecast, hide" id="forecast">
         <div class="weather-item">
             <div class="day"></div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="weather-picture">
@@ -77,6 +81,7 @@
             <div class="humidity"></div>
             <div class="wind-speed"></div>
           </div>
+      </div>
       </div>
     </div>
 </body>

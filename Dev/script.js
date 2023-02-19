@@ -1,4 +1,5 @@
 const mainSearch = document.getElementById("main-search");
+const search = document.getElementById("search-btn");
 const time = document.getElementById("curr-time");
 const date = document.getElementById("curr-date");
 const city = document.getElementById("city");
@@ -6,24 +7,43 @@ const currentWeather = document.getElementById("current-weather-items");
 const forecast = document.getElementById("forecast");
 const currentTemp = document.getElementById("curr-temp");
 const temp = document.getElementById("temp");
-const recentSearches = document.getElementById("prev-searches");
+const forecastContainer = document.getElementById("forecast-container");
+
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+const session = document.getElementById("session");
 
 let searchHistory = [];
 
 const weatherAPI_KEY = "97f5a4d9f513a2319060a51d80b941e9";
 const weatherApiRoot = "https://api.openweathermap.org";
 
-setInterval(() => {
-  const time = new Date()
-  const month = time.getMonth()
-  const date = time.getDate()
-  const day = time.getDay()
-  const hour = time.getHours()
-  const minutes = time.getMinutes()
+search.addEventListener("click", showAll);
 
-  time.innerHTML = date;
-})
+function showAll () {
+  forecastContainer.classList.remove("hide");
+  forecast.classList.remove("hide");
+}
 
+function displayTime() {
+  const dateTime = new Date();
+  const hrs = dateTime.getHours();
+  const min = dateTime.getMinutes();
+  const sec = dateTime.getUTCSeconds();
+
+  if (hrs >= 12) {
+    session.innerHTML = "PM";
+  } else {
+    session.innerHTML = "AM";
+  }
+
+  hours.innerHTML = hrs;
+  minutes.innerHTML = min;
+  seconds.innerHTML = sec;
+}
+
+setInterval(displayTime, 10);
 
 mainSearch.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -52,34 +72,19 @@ mainSearch.addEventListener("submit", (event) => {
         });
     })
     .catch((error) => console.log(error));
-
-  while (recentSearches.hasChildNodes()) {
-    recentSearches.removeChild(recentSearches.firstChild);
-  }
 });
 
 function displayWeatherData(data) {
   let { temp, humidity, wind_speed } = data.current;
-  console.log(temp, humidity, wind_speed);
 
-  currentWeather.innerHTML = `<div class="weater-item">
-       <div>Current Temperature</div>
-       <div>${temp}F</div>
-      </div>
-    <div class="weater-item">
-      <div>Current Humidity</div>
-      <div>${humidity}%</div>
-    </div>
-     <div class="weater-item">
-      <div>Wind Speed</div>
-      <div>${wind_speed}</div>
-    </div>`;
+  
 
   let fiveDayForecast = "";
   data.daily.forEach((day, idx) => {
     if (idx == 0) {
       currentTemp.innerHTML = `
         <div class="current-day" id="current-temperature">
+        <h3>Today's Weather</h3>
         <div class="day">${window.moment(day.dt * 1000).format("dddd")}</div>
         <img src="http://openweathermap.org/img/wn/${
           day.weather[0].icon
