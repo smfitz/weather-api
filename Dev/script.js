@@ -13,6 +13,18 @@ let searchHistory = [];
 const weatherAPI_KEY = "97f5a4d9f513a2319060a51d80b941e9";
 const weatherApiRoot = "https://api.openweathermap.org";
 
+setInterval(() => {
+  const time = new Date()
+  const month = time.getMonth()
+  const date = time.getDate()
+  const day = time.getDay()
+  const hour = time.getHours()
+  const minutes = time.getMinutes()
+
+  time.innerHTML = date;
+})
+
+
 mainSearch.addEventListener("submit", (event) => {
   event.preventDefault();
 
